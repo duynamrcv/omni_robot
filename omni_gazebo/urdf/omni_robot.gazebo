@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot>
+<gazebo>
+    <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>30.0</odometryRate>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+    </plugin>
+  </gazebo> 
+
+  <gazebo reference="base_link">
+    <material>Gazebo/Blue</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <gazebo reference="top_wheel">
+    <material>Gazebo/Black</material>
+	<turnGravityOff>false</turnGravityOff>
+  </gazebo>
+  <gazebo reference="left_bottom_wheel">
+    <material>Gazebo/Black</material>
+	<turnGravityOff>false</turnGravityOff>
+  </gazebo>
+  <gazebo reference="right_bottom_wheel">
+    <material>Gazebo/Black</material>
+	<turnGravityOff>false</turnGravityOff>
+  </gazebo>
+</robot>
