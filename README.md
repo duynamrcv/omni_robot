@@ -16,5 +16,8 @@ roslaunch omni_gazebo gazebo.launch
 rosrun omni_teleop teleop
 ```
 ## Topic
-### Subscriber
-* cmd_vel <```geometry_msgs/Twist```>
+* /cmd_vel <```geometry_msgs/Twist```> - The robot will get the value from this topic to control the robot velocity.
+* /odom <```navigation_msgs/Odometry```> - The robot state include real pose and velocity of robot
+* /scan <```sensor_msgs/LaserScan```> - The lidar 2D topic which show the scan value of lidar
+* /camera/rgb/image_raw <```sensor_msgs/Image```> - The rbg topic which show the depth image stream (8UC3) of rgbd camera
+* /camera/depth/image_raw <```sensor_msgs/Image```> - The depth topic which show the depth image stream (32FC1) of rgbd camera
