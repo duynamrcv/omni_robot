@@ -110,7 +110,7 @@
   </gazebo> 
 
   <!-- -->
-  <gazebo reference="imu_sensor_link">
+  <!-- <gazebo reference="imu_sensor_link">
         <gravity>true</gravity>
         <sensor name='imu_sensor' type='imu'>
             <always_on>1</always_on>
@@ -128,5 +128,5 @@
             </plugin>
             <pose>0 0 0 0 0 0</pose>
         </sensor>
-    </gazebo>
+    </gazebo> -->
 </robot>
