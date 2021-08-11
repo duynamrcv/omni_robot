@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find omni_fake)/launch/omni_fake.launch" />
+    <node pkg="omni_control" type="move2pose" name="move2pose" output="screen" />
+</launch>
