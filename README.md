@@ -11,6 +11,11 @@ $ catkin_make
 ```
 roslaunch omni_gazebo gazebo.launch
 ```
+## Fake Omni Robot simulation on RViz
+```
+roslaunch omni_fake omni_fake.launch
+```
+
 ## Teleop controller
 ```
 rosrun omni_teleop teleop
@@ -22,3 +27,14 @@ rosrun omni_teleop teleop
 * /camera/rgb/image_raw <```sensor_msgs/Image```> - The rbg topic which show the depth image stream (8UC3) of rgbd camera
 * /camera/depth/image_raw <```sensor_msgs/Image```> - The depth topic which show the depth image stream (32FC1) of rgbd camera
 
+## Controller for Omni Robot
+### Move to Pose
+First, run omni fake
+```
+roslaunch omni_fake omni_fake.launch
+```
+Then, run the controller
+```
+$ rosrun omni_control move2pose
+```
+On Rviz simulator, select ```2D Nav Goal``` on the toolbar and select goal position for robot.
