@@ -10,6 +10,8 @@
 
 using namespace std;
 
+#define PI 3.14159265
+
 // Global Variables
 ros::Time last_vel_time;
 ros::Time prev_update_time;
@@ -84,6 +86,8 @@ void updateOdometry(ros::Duration diff_time)
 
     // Robot state - position (Euler Discretize = Runge-Kutta st order)
     odom_pose[2] += odom_vel[2]*dt;
+    if(odom_pose[2] > 2*PI) { odom_pose[2] -= 2*PI; }
+    if(odom_pose[2] < -2*PI) { odom_pose[2] += 2*PI; }
     odom_pose[0] += (odom_vel[0]*cos(odom_pose[2]) - odom_vel[1]*sin(odom_pose[2]))*dt;
     odom_pose[1] += (odom_vel[0]*sin(odom_pose[2]) + odom_vel[1]*cos(odom_pose[2]))*dt;
 
