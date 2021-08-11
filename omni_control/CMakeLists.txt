@@ -17,5 +17,5 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(mode2posee src/move_to_pose.cpp)
+add_executable(move2pose src/move_to_pose.cpp)
 target_link_libraries(move2pose ${catkin_LIBRARIES})
