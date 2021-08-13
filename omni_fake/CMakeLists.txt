@@ -21,3 +21,6 @@ include_directories( ${catkin_INCLUDE_DIRS} )
 
 add_executable(omni_fake_node src/omni_fake_node.cpp)
 target_link_libraries(omni_fake_node ${catkin_LIBRARIES})
+
+add_executable(odom_path_node src/odom_path_node.cpp)
+target_link_libraries(odom_path_node ${catkin_LIBRARIES})

@@ -1,12 +1,15 @@
 <launch>
+    <!-- Load Robot model -->
     <param name="robot_description"
         command="$(find xacro)/xacro --inorder '$(find omni_gazebo)/urdf/omni_robot.xacro'" />
-        
-    <node pkg="omni_fake" name="omni_fake_node" type="omni_fake_node" output="screen" />
-
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
         respawn="false" output="screen" />
+        
+    <!-- Create the Omni Fake Robot -->
+    <node pkg="omni_fake" name="omni_fake_node" type="omni_fake_node" output="screen" />
+    <node pkg="omni_fake" name="odom_path_node" type="odom_path_node" />
 
+    <!-- Load RViz config -->
     <node name="rviz" pkg="rviz" type="rviz" required="true" output="screen"
         args="-d $(find omni_fake)/rviz/rviz_config.rviz" />
 </launch>
