@@ -42,3 +42,13 @@ Results: <br>
 ![Move 2 Pose](omni_control/results/move2pose.png)
 
 ### Pure Pursuit
+First, run omni fake and path generator
+```
+$ roslaunch omni_fake omni_fake.launch
+$ roslaunch omni_path_generator simple_path.launch
+```
+Then, run the controller
+```
+$ rosrun omni_control pure_pursuit
+```
+![Pure Pursuit](omni_control/results/pure_pursuit.png)
