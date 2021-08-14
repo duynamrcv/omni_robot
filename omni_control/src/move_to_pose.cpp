@@ -80,6 +80,13 @@ int main(int argc, char** argv)
     ros::Rate r(10);
     while(nh.ok())
     {
+        // Check goal in the first time
+        if(goal.header.frame_id == "")
+        {
+            ros::spinOnce();
+            r.sleep();
+            continue;
+        }
         geometry_msgs::Twist vel;
         vel = PIDcontroller(odom, goal);
         

@@ -33,15 +33,19 @@ void updateOmniFake(tf::TransformBroadcaster &tf_broadcaster);
 void updateOdometry(ros::Duration diff_time);
 void updateTF(geometry_msgs::TransformStamped& odom_tf);
 
-
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "omni_fake_node");
-    ros::NodeHandle nh;
+    ros::NodeHandle nh("~");
 
     ros::Subscriber sub_vel = nh.subscribe("/cmd_vel", 10, velCallback);
     pub_odom = nh.advertise<nav_msgs::Odometry>("/odom", 10);
     tf::TransformBroadcaster tf_broadcaster;
+
+    // ROS params
+    ros::param::get("~init_pose_x", odom_pose[0]);
+    ros::param::get("~init_pose_y", odom_pose[1]);
+    ros::param::get("~init_pose_theta", odom_pose[2]);
 
     odom.header.frame_id = frame_id;
     odom.child_frame_id = child_frame_id;
