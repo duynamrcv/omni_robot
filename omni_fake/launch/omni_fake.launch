@@ -12,7 +12,7 @@
         <param name="init_pose_theta"   type="double"   value="0.0" />
     </node>
     <node pkg="omni_fake" name="odom_path_node" type="odom_path_node">
-        <param name="length_path"       type="int"      value="100" />
+        <param name="length_path"       type="int"      value="-1" />
     </node>
 
     <!-- Load RViz config -->

@@ -19,3 +19,6 @@ include_directories(
 
 add_executable(move2pose src/move_to_pose.cpp)
 target_link_libraries(move2pose ${catkin_LIBRARIES})
+
+add_executable(pure_pursuit src/pure_pursuit.cpp)
+target_link_libraries(pure_pursuit ${catkin_LIBRARIES})

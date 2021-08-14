@@ -40,3 +40,5 @@ $ rosrun omni_control move2pose
 On Rviz simulator, select ```2D Nav Goal``` on the toolbar and select goal position for robot. <br>
 Results: <br>
 ![Move 2 Pose](omni_control/results/move2pose.png)
+
+### Pure Pursuit
