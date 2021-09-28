@@ -8,7 +8,7 @@
     <arg name="debug" default="false" />
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="$(find omni_gazebo)/world/simple_world.world" />
+        <arg name="world_name" value="$(find omni_gazebo)/world/room.world" />
         <arg name="paused" value="$(arg paused)" />
         <arg name="use_sim_time" value="$(arg use_sim_time)" />
         <arg name="gui" value="$(arg gui)" />
@@ -31,4 +31,6 @@
     
     <node name="rviz" pkg="rviz" type="rviz" required="true" output="screen"
             args="-d $(find omni_gazebo)/config/rviz_config.rviz" />
+            
+    <dode pkg="tf" type="static_transform_publisher" name="laser_broadcaster" args="0 0 0 3.14 0 0 base_link laser 100" />
 </launch>

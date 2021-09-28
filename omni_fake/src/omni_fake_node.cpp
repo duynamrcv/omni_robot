@@ -88,10 +88,11 @@ void updateOdometry(ros::Duration diff_time)
     odom_vel[1] = vel.linear.y;
     odom_vel[2] = vel.angular.z;
 
-    // Robot state - position (Euler Discretize = Runge-Kutta st order)
+    // Robot state - position (Euler Discretize = Runge-Kutta 1st order)
     odom_pose[2] += odom_vel[2]*dt;
-    if(odom_pose[2] > 2*PI) { odom_pose[2] -= 2*PI; }
-    if(odom_pose[2] < -2*PI) { odom_pose[2] += 2*PI; }
+    if(odom_pose[2] > PI) { odom_pose[2] -= 2*PI; }
+    if(odom_pose[2] < -PI) { odom_pose[2] += 2*PI; }
+    
     odom_pose[0] += (odom_vel[0]*cos(odom_pose[2]) - odom_vel[1]*sin(odom_pose[2]))*dt;
     odom_pose[1] += (odom_vel[0]*sin(odom_pose[2]) + odom_vel[1]*cos(odom_pose[2]))*dt;
 
